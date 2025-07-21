@@ -1,0 +1,42 @@
+<% layout('/layout/boilerplate') -%>
+
+<style>
+    body {
+        background-color: rgb(52, 51, 51);
+        color: white;
+        
+    }
+    
+    .container {
+        text-align: center;
+        
+    }
+
+</style>
+<body>
+    <div class="containermain">
+        <div class="container-inner">
+        <div class="showabout">
+    
+      <h1><U><b>!! PROJECT !!</b></U></h1>
+      <br>
+      <% for(let data of projectdata) { %>
+               <div><%= data.project %></div>
+        
+    </div>
+    <div class="about-edit">
+     <div class="a">
+        <form method="get" action="/projectdata/<%= data._id %>/edit">
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+     </div>
+     <div class="a">
+         <form method="post" action="/projectdata/<%= data._id %>/delete?_method=DELETE">
+             <button type="submit" class="btn btn-primary">Clear</button>
+         </form>
+     </div>
+  </div>
+    <% } %>
+    </div>
+  </div>
+</body>
