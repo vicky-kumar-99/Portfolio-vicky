@@ -218,7 +218,7 @@ app.get("/more-details", (req, res) => {
 
 
 app.get("/", (req, res) => {
-     res.send("root working");
+     res.redirect("/listings");
 })
 
 app.listen(8080, () => {
