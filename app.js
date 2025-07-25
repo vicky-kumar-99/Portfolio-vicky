@@ -218,9 +218,11 @@ app.get("/more-details", (req, res) => {
 
 
 app.get("/", (req, res) => {
-     res.redirect("/listings");
+    //  res.redirect("/listings");
+    res.send("main.ejs");
 })
 
-app.listen(8080, () => {
-     console.log("server is listing on the port 8080");
-})
+ const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
