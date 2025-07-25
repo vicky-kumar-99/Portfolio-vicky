@@ -219,7 +219,7 @@ app.get("/more-details", (req, res) => {
 
 app.get("/", (req, res) => {
     //  res.redirect("/listings");
-    res.send("main.ejs");
+    res.render("main.ejs");
 })
 
  const port = process.env.PORT || 8080;
