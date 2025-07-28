@@ -1,3 +1,8 @@
+// if(process.env.NODE_ENV != "production") {
+//     require('dotenv').config()
+// }
+require('dotenv').config();
+
 const express = require("express");
 const app = express();
 const mongoose  = require("mongoose");
@@ -16,15 +21,19 @@ app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride('_method'));
 
+const dbUrl = process.env.ATLASDB_URL;
+
 main().then(() =>{
     console.log("connected to mongodb");
 })
 .catch((err) => {
-    console.log("some error");
+    console.log("Database connection error:", err);
 })
 
+
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/portfolio");
+    //await mongoose.connect("mongodb://127.0.0.1:27017/portfolio");
+    await mongoose.connect(dbUrl);
 }
 
 
