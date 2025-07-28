@@ -1,6 +1,4 @@
-// if(process.env.NODE_ENV != "production") {
-//     require('dotenv').config()
-// }
+
 require('dotenv').config();
 
 const express = require("express");
@@ -32,23 +30,11 @@ main().then(() =>{
 
 
 async function main() {
-    //await mongoose.connect("mongodb://127.0.0.1:27017/portfolio");
     await mongoose.connect(dbUrl);
 }
 
 
-// const data1 = new Vicky({
-//     about: "i am vicky kumar",
-//     skills: "i know dsa with java",
-//     project: "i make arbnb website"
-// })
 
-// data1.save().then((res) => {
-//    console.log(res);
-// })
-// .catch((err) => {
-//     console.log(err);
-// })
 
  app.get("/listings", (req,res) => {
      res.render("main.ejs");
